@@ -5,19 +5,16 @@ return {
     'nvim-lua/plenary.nvim',
     'nvim-tree/nvim-web-devicons', -- not strictly required, but recommended
     'MunifTanjim/nui.nvim',
-    -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
   },
   config = function()
-    require('neo-tree').setup {}
+    require('neo-tree').setup {
+      close_if_last_window = false,
+      filesystem = { filtered_items = { visible = true }, follow_current_file = { enabled = true } },
+    }
   end,
   opts = {
     sources = { 'filesystem', 'buffers', 'git_status', 'document_symbols' },
     open_files_do_not_replace_types = { 'terminal', 'Trouble', 'trouble', 'qf', 'Outline' },
-    filesystem = {
-      filtered_items = {
-        visible = true,
-      },
-    },
     window = {
       mappings = {
         ['<space>'] = 'none',
