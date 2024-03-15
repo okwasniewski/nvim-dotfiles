@@ -11,6 +11,10 @@ return {
       close_if_last_window = false,
       filesystem = { filtered_items = { visible = true }, follow_current_file = { enabled = true } },
     }
+
+    vim.keymap.set('n', '<leader>t', function()
+      vim.cmd.Neotree 'toggle'
+    end, { desc = 'Toggle Neo-tree' })
   end,
   opts = {
     sources = { 'filesystem', 'buffers', 'git_status', 'document_symbols' },
