@@ -2,7 +2,7 @@
 vim.api.nvim_create_autocmd({ 'BufReadPost' }, {
   pattern = { '*.podspec', 'Podfile' },
   callback = function()
-    vim.opt.filetype = 'ruby'
+    vim.opt.filetype = 'test'
   end,
 })
 

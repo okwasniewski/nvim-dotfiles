@@ -17,6 +17,7 @@ return {
     end, { desc = 'Toggle Neo-tree' })
   end,
   opts = {
+    auto_clean_after_session_restore = false,
     sources = { 'filesystem', 'buffers', 'git_status', 'document_symbols' },
     open_files_do_not_replace_types = { 'terminal', 'Trouble', 'trouble', 'qf', 'Outline' },
     window = {
