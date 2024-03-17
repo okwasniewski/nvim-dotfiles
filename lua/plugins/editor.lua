@@ -1,5 +1,6 @@
 return {
   'tpope/vim-sleuth',
+  'famiu/bufdelete.nvim',
   { 'numToStr/Comment.nvim', opts = {} },
   {
     'folke/which-key.nvim',
