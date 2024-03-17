@@ -7,9 +7,11 @@ vim.api.nvim_create_autocmd({ 'BufReadPost' }, {
 })
 
 vim.api.nvim_create_autocmd({ 'BufWrite' }, {
-  callback = function()
+  callback = function(args)
     if vim.bo.filetype == 'typescript' or vim.bo.filetype == 'typescriptreact' then
       vim.cmd.EslintFixAll()
+      return
     end
+    require('conform').format { bufnr = args.buf }
   end,
 })
