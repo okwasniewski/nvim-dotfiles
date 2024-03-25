@@ -21,6 +21,10 @@ return {
         },
         view = 'mini',
       },
+      {
+        view = 'notify',
+        filter = { event = 'msg_showmode' },
+      },
     },
     presets = {
       bottom_search = true,
