@@ -15,7 +15,6 @@ return {
           hide_gitignored = false,
           hide_by_name = { '.git', '.DS_Store' },
         },
-        follow_current_file = { enabled = true },
       },
     }
 

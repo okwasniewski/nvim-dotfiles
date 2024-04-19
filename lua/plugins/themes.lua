@@ -14,4 +14,10 @@ return {
     name = 'catppuccin',
     priority = 1000,
   },
+  {
+    'projekt0n/github-nvim-theme',
+    lazy = false,
+    name = 'github-nvim-theme',
+    priority = 1000,
+  },
 }

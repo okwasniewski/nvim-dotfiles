@@ -1,6 +1,7 @@
 return {
-  'goolord/alpha-nvim',
+  'startup-nvim/startup.nvim',
+  requires = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' },
   config = function()
-    require('alpha').setup(require('alpha.themes.dashboard').config)
+    require('startup').setup()
   end,
 }
