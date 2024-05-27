@@ -58,3 +58,5 @@ vim.opt.scrolloff = 10
 vim.opt.showmode = false
 vim.opt.termguicolors = true
 -- vim: ts=2 sts=2 sw=2 et
+
+vim.api.nvim_exec('language en_US', true)
