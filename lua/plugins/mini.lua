@@ -11,7 +11,7 @@ return {
         preview = true,
       },
     }
-    vim.keymap.set('n', '<leader>e', function()
+    vim.keymap.set('n', '<C-e>', function()
       MiniFiles.open(vim.api.nvim_buf_get_name(0))
     end, { desc = 'Open MiniFiles' })
   end,
