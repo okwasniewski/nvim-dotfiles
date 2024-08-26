@@ -11,6 +11,14 @@ vim.keymap.set('n', '<leader>gp', function()
   vim.cmd.Gitsigns 'preview_hunk'
 end, { desc = 'Preview hunk' })
 
+vim.keymap.set('n', '<leader>gb', function()
+  vim.cmd.Gitsigns 'blame_line'
+end, { desc = 'Blame line' })
+
+vim.keymap.set('n', '<leader>ga', function()
+  vim.cmd.Gitsigns 'blame'
+end, { desc = 'Blame line' })
+
 return {
   { -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
