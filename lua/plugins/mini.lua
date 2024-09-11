@@ -17,6 +17,8 @@ return {
     -- - sr)'  - [S]urround [R]eplace [)] [']
     require('mini.surround').setup()
 
+    require('mini.pairs').setup()
+
     -- MiniFiles: A file explorer that doesn't suck
     require('mini.files').setup {
       mappings = {
