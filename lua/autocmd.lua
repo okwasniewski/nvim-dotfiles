@@ -17,6 +17,20 @@ vim.api.nvim_create_autocmd({ 'BufWrite' }, {
   end,
 })
 
+vim.api.nvim_create_autocmd({ 'BufReadPost' }, {
+  pattern = { '*.mm' },
+  callback = function()
+    vim.opt.filetype = 'objective-cpp'
+  end,
+})
+
+vim.api.nvim_create_autocmd({ 'BufReadPost' }, {
+  pattern = { '*.m' },
+  callback = function()
+    vim.opt.filetype = 'objective-c'
+  end,
+})
+
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
   group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),

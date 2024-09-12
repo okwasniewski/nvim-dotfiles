@@ -131,8 +131,7 @@ return {
       local servers = {
         clangd = {
           cmd = {
-            'clangd',
-            '--offset-encoding=utf-16',
+            'sourcekit-lsp',
           },
         },
         lua_ls = {
@@ -235,6 +234,9 @@ return {
         highlight = { enable = true },
         indent = { enable = true },
       }
+
+      vim.treesitter.language.register('objc', 'objective-cpp')
+      vim.treesitter.language.register('objc', 'objective-c')
     end,
   },
 }
