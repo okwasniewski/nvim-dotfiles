@@ -29,7 +29,3 @@ vim.keymap.set('v', '<', '<gv')
 vim.keymap.set('v', '>', '>gv')
 
 vim.keymap.set('', 's', '<Nop>', { noremap = true })
-
-vim.keymap.set('n', '<leader>x', function()
-  require('bufdelete').bufdelete(0)
-end, { desc = 'Close current buffer' })

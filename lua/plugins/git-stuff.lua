@@ -3,10 +3,6 @@ vim.keymap.set('n', '<leader>gg', function()
   vim.cmd.LazyGit()
 end, { desc = 'Open LazyGit' })
 
-vim.keymap.set('n', '<leader>gd', function()
-  vim.cmd.DiffviewOpen()
-end, { desc = 'Open diff view' })
-
 vim.keymap.set('n', '<leader>gp', function()
   vim.cmd.Gitsigns 'preview_hunk'
 end, { desc = 'Preview hunk' })
@@ -36,12 +32,6 @@ return {
     end,
   },
   { 'akinsho/git-conflict.nvim', version = '*', config = true },
-  {
-    'sindrets/diffview.nvim',
-    setup = function()
-      require('diffview').setup()
-    end,
-  },
   {
     'kdheepak/lazygit.nvim',
     cmd = {

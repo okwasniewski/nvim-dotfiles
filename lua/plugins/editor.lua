@@ -1,6 +1,5 @@
 return {
   'tpope/vim-sleuth',
-  'famiu/bufdelete.nvim',
   { 'numToStr/Comment.nvim', opts = {} },
   {
     'stevearc/dressing.nvim',
