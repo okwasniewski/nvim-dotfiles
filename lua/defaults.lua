@@ -56,5 +56,11 @@ vim.opt.scrolloff = 10
 vim.opt.showmode = false
 vim.opt.termguicolors = true
 -- vim: ts=2 sts=2 sw=2 et
+--
+
+vim.o.foldcolumn = '1'
+vim.o.foldlevel = 99
+vim.o.foldlevelstart = 99
+vim.o.foldenable = true
 
 vim.api.nvim_exec('language en_US', true)
