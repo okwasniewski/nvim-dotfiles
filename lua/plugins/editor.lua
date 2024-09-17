@@ -238,4 +238,13 @@ return {
       vim.treesitter.language.register('objc', 'objective-c')
     end,
   },
+  {
+    'utilyre/barbecue.nvim',
+    name = 'barbecue',
+    version = '*',
+    dependencies = {
+      'SmiteshP/nvim-navic',
+      'nvim-tree/nvim-web-devicons',
+    },
+  },
 }

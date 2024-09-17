@@ -26,6 +26,7 @@ return {
         topdelete = { text = '‾' },
         changedelete = { text = '~' },
       },
+      current_line_blame = true,
     },
     setup = function()
       require('gitsigns').setup()
