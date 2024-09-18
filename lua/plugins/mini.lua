@@ -15,7 +15,14 @@ return {
     -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
     -- - sd'   - [S]urround [D]elete [']quotes
     -- - sr)'  - [S]urround [R]eplace [)] [']
-    require('mini.surround').setup()
+    require('mini.surround').setup {
+      custom_surroundings = {
+        ['('] = { input = { '%b()', '^.().*().$' }, output = { left = '(', right = ')' } },
+        ['['] = { input = { '%b[]', '^.().*().$' }, output = { left = '[', right = ']' } },
+        ['{'] = { input = { '%b{}', '^.().*().$' }, output = { left = '{', right = '}' } },
+        ['<'] = { input = { '%b<>', '^.().*().$' }, output = { left = '<', right = '>' } },
+      },
+    }
 
     require('mini.pairs').setup()
 
