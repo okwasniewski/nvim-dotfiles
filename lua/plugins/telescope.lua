@@ -36,6 +36,21 @@ return {
             require('telescope.themes').get_dropdown(),
           },
         },
+        defaults = {
+          file_ignore_patterns = {
+            '.git',
+            'node_modules',
+            'build',
+            'dist',
+            'yarn.lock',
+          },
+          mappings = {
+            n = {
+              ['d'] = require('telescope.actions').delete_buffer,
+              ['q'] = require('telescope.actions').close,
+            },
+          },
+        },
       }
 
       pcall(require('telescope').load_extension, 'fzf')
@@ -45,12 +60,21 @@ return {
       -- See `:help telescope.builtin`
       local builtin = require 'telescope.builtin'
       vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
-      vim.keymap.set('n', '<leader>sb', builtin.buffers, { desc = '[S]earch [B]uffers' })
+      vim.keymap.set('n', '<S-b>', function()
+        builtin.buffers(require('telescope.themes').get_dropdown {
+          sort_mru = true,
+          sort_lastused = true,
+          initial_mode = 'normal',
+          layout_config = { width = 0.35 },
+          previewer = false,
+        })
+      end, { desc = '[S]earch [B]uffers' })
       vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
       vim.keymap.set('n', '<leader><leader>', function()
-        builtin.git_files(require('telescope.themes').get_dropdown {
+        builtin.find_files(require('telescope.themes').get_dropdown {
           previewer = false,
-          layout_config = { width = 0.4 },
+          hidden = true,
+          layout_config = { width = 0.35 },
         })
       end, { desc = '[S]earch Git [F]iles' })
       vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
