@@ -35,6 +35,10 @@ return {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
           },
+          package_info = {
+            theme = 'dropdown',
+            initial_mode = 'normal',
+          },
         },
         defaults = {
           file_ignore_patterns = {
@@ -44,6 +48,18 @@ return {
             'dist',
             'yarn.lock',
           },
+          vimgrep_arguments = {
+            'rg',
+            '--color=never',
+            '--no-heading',
+            '--with-filename',
+            '--line-number',
+            '--column',
+            '--smart-case',
+            '--hidden',
+            '--glob=!.git/',
+          },
+          prompt_prefix = '  ',
           mappings = {
             n = {
               ['d'] = require('telescope.actions').delete_buffer,
@@ -56,6 +72,7 @@ return {
       pcall(require('telescope').load_extension, 'fzf')
       pcall(require('telescope').load_extension, 'ui-select')
       pcall(require('telescope').load_extension, 'live_grep_args')
+      pcall(require('telescope').load_extension, 'package_info')
 
       -- See `:help telescope.builtin`
       local builtin = require 'telescope.builtin'
@@ -65,7 +82,11 @@ return {
           sort_mru = true,
           sort_lastused = true,
           initial_mode = 'normal',
-          layout_config = { width = 0.35 },
+          layout_config = {
+            height = 0.4,
+            prompt_position = 'top',
+            preview_cutoff = 120,
+          },
           previewer = false,
         })
       end, { desc = '[S]earch [B]uffers' })
@@ -74,7 +95,11 @@ return {
         builtin.find_files(require('telescope.themes').get_dropdown {
           previewer = false,
           hidden = true,
-          layout_config = { width = 0.35 },
+          layout_config = {
+            height = 0.4,
+            prompt_position = 'top',
+            preview_cutoff = 120,
+          },
         })
       end, { desc = '[S]earch Git [F]iles' })
       vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })

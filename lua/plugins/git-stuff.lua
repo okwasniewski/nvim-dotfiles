@@ -1,6 +1,6 @@
 -- NOTE: Git keymaps
 vim.keymap.set('n', '<leader>gg', function()
-  vim.cmd.LazyGit()
+  Snacks.lazygit()
 end, { desc = 'Open LazyGit' })
 
 vim.keymap.set('n', '<leader>gp', function()
@@ -33,18 +33,4 @@ return {
     end,
   },
   { 'akinsho/git-conflict.nvim', version = '*', config = true },
-  {
-    'kdheepak/lazygit.nvim',
-    cmd = {
-      'LazyGit',
-      'LazyGitConfig',
-      'LazyGitCurrentFile',
-      'LazyGitFilter',
-      'LazyGitFilterCurrentFile',
-    },
-    -- optional for floating window border decoration
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-    },
-  },
 }
