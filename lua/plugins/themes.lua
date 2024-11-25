@@ -17,7 +17,7 @@ return {
       require('catppuccin').setup {
         transparent_background = true,
       }
-      vim.cmd.colorscheme 'catppuccin'
+      vim.cmd.colorscheme 'catppuccin-mocha'
       vim.cmd.hi 'Comment gui=none'
     end,
   },

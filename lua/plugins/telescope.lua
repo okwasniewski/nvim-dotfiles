@@ -40,6 +40,11 @@ return {
             initial_mode = 'normal',
           },
         },
+        pickers = {
+          colorscheme = {
+            enable_preview = true,
+          },
+        },
         defaults = {
           file_ignore_patterns = {
             '.git',
