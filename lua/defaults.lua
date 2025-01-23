@@ -30,7 +30,6 @@ vim.opt.smartcase = true
 
 -- Keep signcolumn on by default
 vim.opt.signcolumn = 'yes'
-vim.opt.laststatus = 0
 
 -- Decrease update time
 vim.opt.updatetime = 250
@@ -65,6 +64,10 @@ vim.o.foldlevelstart = 99
 vim.o.foldenable = true
 
 vim.api.nvim_exec('language en_US', true)
+
+vim.opt.spell = true
+vim.opt.spelllang = 'en_us'
+vim.opt.spellsuggest = 'best,9'
 
 vim.cmd [[
   highlight Normal guibg=none
