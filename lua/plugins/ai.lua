@@ -6,6 +6,11 @@ return {
     lazy = false,
     version = false, -- set this if you want to always pull the latest change
     opts = {
+      mappings = {
+        submit = {
+          insert = '<C-CR>',
+        },
+      },
       -- add any opts here
     },
     build = 'make',
