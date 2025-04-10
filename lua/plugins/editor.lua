@@ -272,4 +272,8 @@ return {
     },
     opts = {},
   },
+  {
+    'windwp/nvim-ts-autotag',
+    opts = {},
+  },
 }
