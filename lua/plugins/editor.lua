@@ -1,6 +1,14 @@
 return {
   'tpope/vim-sleuth',
-  { 'numToStr/Comment.nvim', opts = {} },
+  {
+    'numToStr/Comment.nvim',
+    config = function()
+      require('Comment').setup {
+        pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
+      }
+    end,
+  },
+  { 'JoosepAlviste/nvim-ts-context-commentstring', opts = {} },
   {
     'stevearc/dressing.nvim',
     opts = {},
