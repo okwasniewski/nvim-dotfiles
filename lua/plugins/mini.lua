@@ -45,12 +45,13 @@ return {
       local rhs = function()
         -- Make new window and set it as target
         local new_target_window
-        vim.api.nvim_win_call(MiniFiles.get_target_window(), function()
+        vim.api.nvim_win_call(MiniFiles.get_explorer_state().target_window, function()
           vim.cmd(direction .. ' split')
           new_target_window = vim.api.nvim_get_current_win()
         end)
 
         MiniFiles.set_target_window(new_target_window)
+        MiniFiles.go_in()
       end
 
       -- Adding `desc` will result into `show_help` entries
@@ -58,13 +59,30 @@ return {
       vim.keymap.set('n', lhs, rhs, { buffer = buf_id, desc = desc })
     end
 
+    -- Yank in register full path of entry under cursor
+    local yank_path = function()
+      local path = (MiniFiles.get_fs_entry() or {}).path
+      if path == nil then
+        return vim.notify 'Cursor is not on valid entry'
+      end
+      vim.fn.setreg(vim.v.register, path)
+    end
+
+    -- Open path with system default handler (useful for non-text files)
+    local ui_open = function()
+      vim.ui.open(MiniFiles.get_fs_entry().path)
+    end
+
     vim.api.nvim_create_autocmd('User', {
       pattern = 'MiniFilesBufferCreate',
       callback = function(args)
         local buf_id = args.data.buf_id
-        -- Tweak keys to your liking
         map_split(buf_id, 'gs', 'belowright horizontal')
         map_split(buf_id, 'gv', 'belowright vertical')
+        map_split(buf_id, '<C-t>', 'tab')
+
+        vim.keymap.set('n', 'gy', yank_path, { buffer = buf_id, desc = 'Yank path' })
+        vim.keymap.set('n', 'gX', ui_open, { buffer = buf_id, desc = 'OS open' })
       end,
     })
   end,
