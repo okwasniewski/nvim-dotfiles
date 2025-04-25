@@ -1,6 +1,12 @@
 return {
   'tpope/vim-sleuth',
   {
+    'sbdchd/neoformat',
+    config = function()
+      vim.g.neoformat_try_node_exe = 1
+    end,
+  },
+  {
     'numToStr/Comment.nvim',
     config = function()
       require('Comment').setup {

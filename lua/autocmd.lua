@@ -11,8 +11,9 @@ vim.api.nvim_create_autocmd({ 'BufWrite' }, {
     -- Check if EslintFixAll command exists
     if vim.fn.exists ':EslintFixAll' == 2 then
       vim.cmd.EslintFixAll()
-    else
     end
+
+    vim.cmd.Neoformat()
     require('conform').format { bufnr = args.buf }
   end,
 })
