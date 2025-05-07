@@ -62,8 +62,7 @@ vim.o.foldcolumn = '1'
 vim.o.foldlevel = 99
 vim.o.foldlevelstart = 99
 vim.o.foldenable = true
-
-vim.api.nvim_exec('language en_US', true)
+vim.opt.conceallevel = 2
 
 vim.opt.spell = true
 vim.opt.spelllang = 'en_us'
