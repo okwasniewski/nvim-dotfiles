@@ -15,6 +15,14 @@ vim.keymap.set('n', '<leader>ga', function()
   vim.cmd.Gitsigns 'blame'
 end, { desc = 'Blame line' })
 
+vim.keymap.set('n', '<leader>gc', function()
+  vim.cmd.DiffviewOpen()
+end, { desc = 'Open current changes' })
+
+vim.keymap.set('n', '<leader>gh', function()
+  vim.cmd.DiffviewFileHistory()
+end, { desc = 'Open file history' })
+
 return {
   { -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -33,4 +41,15 @@ return {
     end,
   },
   { 'sindrets/diffview.nvim', version = '*' },
+  {
+    'pwntester/octo.nvim',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+    },
+    config = function()
+      require('octo').setup {
+        picker = 'fzf-lua',
+      }
+    end,
+  },
 }
