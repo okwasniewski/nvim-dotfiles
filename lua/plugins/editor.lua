@@ -155,6 +155,16 @@ return {
             'sourcekit-lsp',
           },
         },
+        ts_ls = {
+          init_options = {
+            hostInfo = 'neovim',
+            preferences = {
+              includeCompletionsForModuleExports = true,
+              includeCompletionsForImportStatements = true,
+              importModuleSpecifierPreference = 'non-relative',
+            },
+          },
+        },
         lua_ls = {
           settings = {
             Lua = {
