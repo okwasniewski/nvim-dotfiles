@@ -16,8 +16,11 @@ vim.keymap.set('n', '<leader>ga', function()
 end, { desc = 'Blame line' })
 
 vim.keymap.set('n', '<leader>gc', function()
-  vim.cmd.DiffviewOpen()
-end, { desc = 'Open current changes' })
+  if vim.t.diffview_view_initialized then
+    return vim.cmd.DiffviewClose()
+  end
+  return vim.cmd.DiffviewOpen()
+end, { desc = 'Toggle diffview' })
 
 vim.keymap.set('n', '<leader>gh', function()
   vim.cmd.DiffviewFileHistory()

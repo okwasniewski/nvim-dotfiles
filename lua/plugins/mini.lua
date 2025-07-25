@@ -26,6 +26,7 @@ return {
 
     require('mini.pairs').setup()
     require('mini.move').setup()
+    require('mini.bracketed').setup()
 
     -- MiniFiles: A file explorer that doesn't suck
     require('mini.files').setup {
