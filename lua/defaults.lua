@@ -23,6 +23,8 @@ vim.opt.breakindent = true
 
 -- Save undo history
 vim.opt.undofile = true
+vim.opt.swapfile = false
+vim.opt.autoread = true
 
 -- Case-insensitive searching UNLESS \C or capital in search
 vim.opt.ignorecase = true
