@@ -14,7 +14,6 @@ vim.api.nvim_create_autocmd({ 'BufWrite' }, {
     end
 
     vim.cmd.Neoformat()
-    require('conform').format { bufnr = args.buf }
   end,
 })
 
