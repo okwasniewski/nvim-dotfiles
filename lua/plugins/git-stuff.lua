@@ -43,5 +43,11 @@ return {
       require('gitsigns').setup()
     end,
   },
-  { 'sindrets/diffview.nvim', version = '*' },
+  { 'sindrets/diffview.nvim', version = '*', opts = {
+    view = {
+      merge_tool = {
+        layout = 'diff3_mixed',
+      },
+    },
+  } },
 }
