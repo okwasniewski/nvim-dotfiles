@@ -3,10 +3,6 @@ vim.keymap.set('n', '<leader>gg', function()
   Snacks.lazygit()
 end, { desc = 'Open LazyGit' })
 
-vim.keymap.set('n', '<leader>gp', function()
-  vim.cmd.Gitsigns 'preview_hunk'
-end, { desc = 'Preview hunk' })
-
 vim.keymap.set('n', '<leader>gb', function()
   vim.cmd.Gitsigns 'blame_line'
 end, { desc = 'Blame line' })
