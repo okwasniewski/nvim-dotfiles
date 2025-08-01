@@ -91,4 +91,17 @@ return {
       { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
     },
   },
+  {
+    'okwasniewski/xcode-build-server.nvim',
+    -- dir = '~/workspace/xcode-build-server.nvim',
+    ft = { 'swift', 'objc', 'objcpp' },
+    config = function()
+      require('xcode-build-server').setup {
+        auto_setup = false,
+        picker = {
+          backend = 'fzf', -- or "fzf" or "vim_ui"
+        },
+      }
+    end,
+  },
 }
