@@ -16,6 +16,7 @@ return {
       vim.keymap.set('n', '<leader>sk', fzf.keymaps, { desc = '[S]earch [K]eymaps' })
       vim.keymap.set('n', '<leader><leader>', fzf.files, { desc = '[S]earch Files' })
       vim.keymap.set('n', '<leader>sf', fzf.files, { desc = '[S]earch [F]iles' })
+      vim.keymap.set('n', '<leader>sl', fzf.lsp_workspace_symbols, { desc = '[S]earch [W]workspace Symbols' })
       vim.keymap.set('n', '<leader>sg', fzf.live_grep, { desc = '[S]earch by [G]rep' })
       vim.keymap.set('n', '<leader>sd', fzf.diagnostics_document, { desc = '[S]earch [D]iagnostics' })
       vim.keymap.set('n', '<leader>ss', fzf.spell_suggest, { desc = '[S]earch [S]pelling suggestions' })
