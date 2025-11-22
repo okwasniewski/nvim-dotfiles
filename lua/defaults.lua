@@ -55,24 +55,20 @@ vim.opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
-vim.opt.showmode = false
 vim.opt.termguicolors = true
--- vim: ts=2 sts=2 sw=2 et
---
 
-vim.o.foldcolumn = '1'
-vim.o.foldlevel = 99
-vim.o.foldlevelstart = 99
-vim.o.foldenable = true
+-- Folding options
+vim.opt.foldcolumn = '1'
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
+vim.opt.foldenable = true
 vim.opt.conceallevel = 2
 
+-- Spell checking
 vim.opt.spell = true
 vim.opt.spelllang = 'en_us'
 vim.opt.spellsuggest = 'best,9'
 
-vim.cmd [[
-  highlight Normal guibg=none
-  highlight NonText guibg=none
-  highlight Normal ctermbg=none
-  highlight NonText ctermbg=none
-]]
+-- Transparent background
+vim.cmd.highlight 'Normal guibg=none ctermbg=none'
+vim.cmd.highlight 'NonText guibg=none ctermbg=none'
