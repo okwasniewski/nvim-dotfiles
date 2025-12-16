@@ -11,17 +11,6 @@ vim.keymap.set('n', '<leader>ga', function()
   vim.cmd.Gitsigns 'blame'
 end, { desc = 'Blame line' })
 
-vim.keymap.set('n', '<leader>gc', function()
-  if vim.t.diffview_view_initialized then
-    return vim.cmd.DiffviewClose()
-  end
-  return vim.cmd.DiffviewOpen()
-end, { desc = 'Toggle diffview' })
-
-vim.keymap.set('n', '<leader>gh', function()
-  vim.cmd.DiffviewFileHistory()
-end, { desc = 'Open file history' })
-
 return {
   { -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -39,11 +28,9 @@ return {
       require('gitsigns').setup()
     end,
   },
-  { 'sindrets/diffview.nvim', version = '*', opts = {
-    view = {
-      merge_tool = {
-        layout = 'diff3_mixed',
-      },
-    },
-  } },
+  {
+    'esmuellert/vscode-diff.nvim',
+    dependencies = { 'MunifTanjim/nui.nvim' },
+    cmd = 'CodeDiff',
+  },
 }
