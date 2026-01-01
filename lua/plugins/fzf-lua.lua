@@ -12,7 +12,12 @@ return {
         },
       }
       vim.keymap.set('n', '<leader>sh', fzf.help_tags, { desc = '[S]earch [H]elp' })
-      vim.keymap.set('n', '<leader>sb', fzf.buffers, { desc = '[S]earch [B]uffers' })
+      vim.keymap.set('n', '<C-b>', function()
+        fzf.buffers {
+          winopts = { height = 0.2, width = 0.4, row = 0.4, preview = { hidden = true } },
+          fzf_opts = { ['--layout'] = 'reverse-list' },
+        }
+      end, { desc = 'Buffer picker' })
       vim.keymap.set('n', '<leader>sk', fzf.keymaps, { desc = '[S]earch [K]eymaps' })
       vim.keymap.set('n', '<leader><leader>', fzf.files, { desc = '[S]earch Files' })
       vim.keymap.set('n', '<leader>sf', fzf.files, { desc = '[S]earch [F]iles' })
@@ -25,6 +30,12 @@ return {
       vim.keymap.set('n', '<leader>sn', function()
         fzf.files { cwd = vim.fn.stdpath 'config' }
       end, { desc = '[S]earch [N]eovim files' })
+
+      -- Git pickers
+      vim.keymap.set('n', '<leader>gs', fzf.git_status, { desc = '[G]it [S]tatus' })
+      vim.keymap.set('n', '<leader>gc', fzf.git_commits, { desc = '[G]it [C]ommits' })
+      vim.keymap.set('n', '<leader>gB', fzf.git_branches, { desc = '[G]it [B]ranches' })
+      vim.keymap.set('n', '<leader>gf', fzf.git_bcommits, { desc = '[G]it [F]ile commits' })
     end,
   },
 }
