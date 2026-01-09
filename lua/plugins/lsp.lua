@@ -88,14 +88,27 @@ return {
       end
 
       vim.lsp.config('sourcekit', {
-        capabilities = {
+        cmd = { 'xcrun', 'sourcekit-lsp' },
+        filetypes = { 'swift', 'objc', 'objcpp' },
+        root_dir = function(bufnr, on_dir)
+          local fname = vim.api.nvim_buf_get_name(bufnr)
+          local util = require('lspconfig.util')
+          on_dir(
+            util.root_pattern('buildServer.json')(fname)
+              or util.root_pattern('*.xcodeproj', '*.xcworkspace')(fname)
+              or util.root_pattern('Package.swift', 'compile_commands.json')(fname)
+              or vim.fs.dirname(vim.fs.find('.git', { path = fname, upward = true })[1])
+          )
+        end,
+        capabilities = vim.tbl_deep_extend('force', capabilities, {
           workspace = {
             didChangeWatchedFiles = {
               dynamicRegistration = true,
             },
           },
-        },
+        }),
       })
+      vim.lsp.enable('sourcekit')
 
       require('mason').setup()
 
