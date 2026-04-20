@@ -9,26 +9,6 @@ return {
   dependencies = {
     'nvim-lua/plenary.nvim',
     {
-      '3rd/image.nvim',
-      opts = {
-        backend = 'kitty',
-        integrations = {
-          markdown = {
-            enabled = true,
-            clear_in_insert_mode = true,
-            only_render_image_at_cursor = false,
-            filetypes = { 'markdown' },
-          },
-        },
-        max_width = 100,
-        max_height = 20,
-        max_height_window_percentage = 50,
-        max_width_window_percentage = nil,
-        window_overlap_clear_enabled = true,
-        window_overlap_clear_ft_ignore = { 'cmp_menu', 'cmp_docs', '' },
-      },
-    },
-    {
       'MeanderingProgrammer/render-markdown.nvim',
       dependencies = { 'nvim-treesitter/nvim-treesitter' },
       ft = 'markdown',

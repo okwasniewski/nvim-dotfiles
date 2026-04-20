@@ -7,6 +7,5 @@ return {
     quickfile = { enabled = true },
     statuscolumn = { enabled = true },
     dashboard = { enabled = true },
-    image = { enabled = true },
   },
 }
